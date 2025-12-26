@@ -24,7 +24,19 @@ jobs:
       - name: Run script
         run: node src/index.js
         env:
-          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
-          IG_BUSINESS_ID: ${{ secrets.IG_BUSINESS_ID }}
-          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
-          SHEET_ID: ${{ secrets.SHEET_ID }}
+            INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+            INSTAGRAM_MAIN_ID: ${{ secrets.INSTAGRAM_MAIN_ID }}
+            OVERWATCH_ID: ${{ secrets.OVERWATCH_ID }}
+            SPLATOON_ID: ${{ secrets.SPLATOON_ID }}
+            VALORANT_ID: ${{ secrets.VALORANT_ID }}
+            TEKKEN_ID: ${{ secrets.TEKKEN_ID }}
+            MARVELRIVALS_ID: ${{ secrets.MARVELRIVALS_ID }}
+            COUNTERSTRIKE_ID: ${{ secrets.COUNTERSTRIKE_ID }}
+            STREETFIGHTER_ID: ${{ secrets.STREETFIGHTER_ID }}
+            FORTNITE_ID: ${{ secrets.FORTNITE_ID }}
+            SMASH_ID: ${{ secrets.SMASH_ID }}
+            LEAGUEOFLEGENDS_ID: ${{ secrets.LEAGUEOFLEGENDS_ID }}
+            RAINBOWSIXSIEGE_ID: ${{ secrets.RAINBOWSIXSIEGE_ID }}
+            ROCKETLEAGUE_ID: ${{ secrets.ROCKETLEAGUE_ID }}
+            GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+            SPREADSHEET_ID: ${{ secrets.SPREADSHEET_ID }}
