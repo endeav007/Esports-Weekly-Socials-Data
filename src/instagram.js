@@ -8,20 +8,26 @@ MARVELRIVALS_ID, COUNTERSTRIKE_ID, STREETFIGHTER_ID, FORTNITE_ID, SMASH_ID, LEAG
 
 export async function TestInstagram() {
 
-    console.log(
-        "INSTAGRAM_ACCESS_TOKEN exists:",
-        !!INSTAGRAM_ACCESS_TOKEN
-    );
-  const response = await axios.get(
-    "https://graph.facebook.com/v18.0/me/accounts",
-    {
-      params: {
-        access_token: INSTAGRAM_ACCESS_TOKEN
+    try {
+    const response = await axios.get(
+      "https://graph.facebook.com/v18.0/me/accounts",
+      {
+        params: {
+          access_token: INSTAGRAM_ACCESS_TOKEN
+        }
       }
-    }
-  );
+    );
 
-  console.log(response.data);
+    console.log("Accounts response:", response.data);
+  } catch (error) {
+    console.error("Instagram test failed");
+
+    if (error.response) {
+      console.error(error.response.data);
+    } else {
+      console.error(error.message);
+    }
+  }
  
 }
 
