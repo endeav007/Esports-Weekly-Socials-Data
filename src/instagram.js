@@ -64,4 +64,3 @@ export async function GetMedaAccounts(account_ID){
     }
 }
 
-GetMedaAccounts(accounts.main);
