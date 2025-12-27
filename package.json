@@ -18,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/endeav007/Esports-Weekly-Socials-Data/issues"
   },
-  "homepage": "https://github.com/endeav007/Esports-Weekly-Socials-Data#readme"
+  "homepage": "https://github.com/endeav007/Esports-Weekly-Socials-Data#readme",
+  "dependencies": {
+    "axios": "^1.13.2",
+    "googleapis": "^169.0.0"
+  }
 }
