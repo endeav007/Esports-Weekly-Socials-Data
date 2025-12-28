@@ -22,45 +22,18 @@ const accounts ={
   rocketleague: ROCKETLEAGUE_ID
 };
 
-export async function TestInstagram() {
-    try {
-    const response = await axios.get(
-      "https://graph.facebook.com/v18.0/me/accounts",
-      {
-        params: {
-          access_token: INSTAGRAM_ACCESS_TOKEN
-        }
+async function getMedia(igUserId, pageToken) {
+  const res = await axios.get(
+    `https://graph.facebook.com/v18.0/${igUserId}/media`,
+    {
+      params: {
+        fields: "id,caption,media_type,like_count,comments_count,timestamp",
+        access_token: pageToken
       }
-    );
-    console.log("Accounts response:", response.data);
-  } catch (error) {
-    console.error("Instagram test failed");
-
-    if (error.response) {
-      console.error(error.response.data);
-    } else {
-      console.error(error.message);
     }
-  }
- 
+  );
+  console.log(res.data.data);
+  return res.data.data;
 }
 
-export async function GetMedaAccounts(account_ID){
-    const token = INSTAGRAM_ACCESS_TOKEN;
-    try{
-        
-        const response = await axios.get(
-            `https://graph.facebook.com/v19.0/${account_ID}?fields=id,username,media.limit(5){id,caption,media_type,media_url,timestamp}&access_token=${token}`
-
-        );
-        all_accounts.push(response);
-        console.log("New accounts array: " + all_accounts);
-    } catch (error){
-        if (error.response) {
-            console.error(error.response.data);
-        } else {
-            console.error(error.message);
-        }
-    }
-}
-
+getMedia(main, token);
