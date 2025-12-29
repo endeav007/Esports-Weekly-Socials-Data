@@ -10,7 +10,7 @@ async function main(){
     console.log("Fetching basic data");
     //const data = await TestInstagram();
     //const data = getMedia(INSTAGRAM_MAIN_ID, INSTAGRAM_ACCESS_TOKEN);
-    console.log(data);
+    //console.log(data);
     getAllAccountData();
 
 
