@@ -22,7 +22,7 @@ const accounts ={
   rocketleague: ROCKETLEAGUE_ID
 };
 
-async function getMedia(igUserId, pageToken) {
+export async function getMedia(igUserId, pageToken) {
   const res = await axios.get(
     `https://graph.facebook.com/v18.0/${igUserId}/media`,
     {
