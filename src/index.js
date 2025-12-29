@@ -2,7 +2,7 @@
 
 //import {TestInstagram} from "./instagram.js";
 //import {getMedia} from "./instagram.js";
-import { getAllAccountData } from "./instagram";
+import { getAllAccountData } from "./instagram.js";
 
 const {INSTAGRAM_MAIN_ID, INSTAGRAM_ACCESS_TOKEN} = process.env;
 
