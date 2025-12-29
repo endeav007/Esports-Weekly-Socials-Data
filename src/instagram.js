@@ -35,5 +35,3 @@ export async function getMedia(igUserId, pageToken) {
   console.log(res.data.data);
   return res.data.data;
 }
-
-getMedia(main, token);
