@@ -2,8 +2,6 @@ import axios from 'axios';
 import {google} from 'googleapis';
 
 
-const spreadsheet_id = SPREADSHEET_ID.process.env;
-
 const ACCOUNT_ROWS = {
     main: 2,
     overwatch2: 3, 
@@ -24,15 +22,14 @@ function buildTotalsRow(totals) {
   return {
     likes: totals.likes ?? 0,
     comments: totals.comments ?? 0,
-    shares: totals.comments ?? 0,
+    shares: totals.shares ?? 0,
+    views: totals.views ?? 0,
     total_interactions: totals.total_interactions ?? 0,
     last_updated: new Date().toISOString()
   };
 }
 
-function toSheetValues(row) {
-  return COLUMNS.map(col => row[col]);
-}
+
 
 function rowObjectToSheetValues(row) {
   return [
@@ -64,7 +61,7 @@ export async function updateTotalsSheet({
     }
 
     const row = buildTotalsRow(accountTotals, sinceDate);
-    const values = toSheetValues(row);
+    const values = rowObjectToSheetValues(row);
 
     data.push({
       range: `${sheetName}!B${rowIndex}:G${rowIndex}`,
