@@ -47,7 +47,7 @@ export async function getAllAccountData(){
       getMedia(account, INSTAGRAM_ACCESS_TOKEN)
     )
   );
-  console.log(results.flat());
+  //console.log(results.flat());
   return results.flat();
 }
 
