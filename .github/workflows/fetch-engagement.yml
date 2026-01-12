@@ -40,3 +40,5 @@ jobs:
             ROCKETLEAGUE_ID: ${{ secrets.ROCKETLEAGUE_ID }}
             GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
             SPREADSHEET_ID: ${{ secrets.SPREADSHEET_ID }}
+            GOOGLE_CLIENT_EMAIL: ${{secrets.GOOGLE_CLIENT_EMAIL}}
+            GOOGLE_PRIVATE_KEY: ${{secrets.GOOGLE_PRIVATE_KEY}}
