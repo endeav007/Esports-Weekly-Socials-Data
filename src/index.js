@@ -7,7 +7,7 @@ import { updateTotalsSheet } from "./sheets.js";
 
 const {GOOGLE_SERVICE_ACCOUNT_JSON, INSTAGRAM_ACCESS_TOKEN, SPREADSHEET_ID} = process.env;
 const auth = new google.auth.GoogleAuth({
-  keyFile: "./service-account.json", // path to your JSON key
+  keyFile: "service-account.json", // path to your JSON key
   scopes: ["https://www.googleapis.com/auth/spreadsheets"],
 });
 
