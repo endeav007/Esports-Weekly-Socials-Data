@@ -111,7 +111,7 @@ function aggregateMetrics(mediaArray) {
 
 
 export async function runDailyAggregation() {
-  const sinceDate = "2024-01-01";
+  const sinceDate = "2026-01-01";
 
   const allMedia = await getAllAccountData();
   const filteredMedia = filterMediaSince(allMedia, sinceDate);
