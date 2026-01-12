@@ -1,12 +1,17 @@
 //what will call both instagram and sheets.
 
-//import {TestInstagram} from "./instagram.js";
-//import {getMedia} from "./instagram.js";
+import { google } from "googleapis";
+import fs from "fs";
 import { runDailyAggregation } from "./instagram.js";
-
 import { updateTotalsSheet } from "./sheets.js";
 
-const {INSTAGRAM_MAIN_ID, INSTAGRAM_ACCESS_TOKEN, SPREADSHEET_ID} = process.env;
+const {GOOGLE_SERVICE_ACCOUNT_JSON, INSTAGRAM_ACCESS_TOKEN, SPREADSHEET_ID} = process.env;
+const auth = new google.auth.GoogleAuth({
+  keyFile: GOOGLE_SERVICE_ACCOUNT_JSON, // path to your JSON key
+  scopes: ["https://www.googleapis.com/auth/spreadsheets"],
+});
+
+const sheets = google.sheets({ version: "v4", auth });
 
 async function main(){
     console.log("Fetching basic data");
