@@ -18,16 +18,18 @@ async function main(){
     //const data = await TestInstagram();
     //const data = getMedia(INSTAGRAM_MAIN_ID, INSTAGRAM_ACCESS_TOKEN);
     //console.log(data);
-    runDailyAggregation();
+    const totals = await runDailyAggregation();
+
+    await updateTotalsSheet({
+        sheets,
+        spreadsheetId: SPREADSHEET_ID,
+        totals,
+        sinceDate: "2026-01-01"
+    });
 
 }
 
-await updateTotalsSheet({
-  sheets,
-  spreadsheetId: SPREADSHEET_ID,
-  totals,
-  sinceDate: "2026-01-01"
-});
+
 
 main().catch(err => {
     console.error(err);
