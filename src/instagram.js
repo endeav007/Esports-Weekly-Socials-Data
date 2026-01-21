@@ -32,10 +32,23 @@ export async function getMedia(account, pageToken) {
       }
     }
   );
+
+  const followers = await axios.get(
+    `https://graph.facebook.com/v18.0/${account.id}`,
+    {
+      params: {
+        fields: "followers_count",
+        access_token: pageToken
+      }
+    }
+  );
+
   return res.data.data.map(media => ({
     ...media,
     account_id: account.id,
-    account_name: account.name
+    account_name: account.name,
+    account_followers: followers.data.followers.count
+
   }));
 }
 
@@ -96,7 +109,7 @@ function aggregateMetrics(mediaArray) {
         views: 0,
         total_interactions: 0,
         total_posts: 0,
-        total_followers: media.followers || 0 
+        total_followers: media.account_followers || 0 
       };
     }
 
