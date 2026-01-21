@@ -47,7 +47,7 @@ export async function getMedia(account, pageToken) {
     ...media,
     account_id: account.id,
     account_name: account.name,
-    account_followers: followers.data.followers.count
+    account_followers: followers.data.followers_count
 
   }));
 }
