@@ -59,7 +59,7 @@ async function fetchMediaWithInsights(mediaArray, token){
     recentMedia.map(async (media) => {
       try {
         const insightsResponse = await axios.get(
-          `https://graph.facebook.com/v19.0/${media.id}/insights?metric=likes,comments,shares,total_interactions,views,reposts,followers&access_token=${token}`
+          `https://graph.facebook.com/v19.0/${media.id}/insights?metric=likes,comments,shares,total_interactions,views,reposts&access_token=${token}`
         );
         media.insights = {};
         for (let metric of insightsResponse.data.data) {
