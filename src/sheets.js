@@ -25,6 +25,8 @@ function buildTotalsRow(totals) {
     shares: totals.shares ?? 0,
     views: totals.views ?? 0,
     total_interactions: totals.total_interactions ?? 0,
+    total_posts: totals.total_posts ?? 0,
+    total_followers: totals.total_followers ?? 0,
     last_updated: new Date().toISOString()
   };
 }
@@ -38,6 +40,8 @@ function rowObjectToSheetValues(row) {
     row.shares,
     row.views,
     row.total_interactions,
+    row.total_posts,
+    row.total_followers,
     row.last_updated
   ];
 }
@@ -64,7 +68,7 @@ export async function updateTotalsSheet({
     const values = rowObjectToSheetValues(row);
 
     data.push({
-      range: `${sheetName}!B${rowIndex}:G${rowIndex}`,
+      range: `${sheetName}!B${rowIndex}:I${rowIndex}`,
       values: [values]
     });
   }

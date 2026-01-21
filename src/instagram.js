@@ -94,7 +94,9 @@ function aggregateMetrics(mediaArray) {
         comments: 0,
         shares: 0,
         views: 0,
-        total_interactions: 0
+        total_interactions: 0,
+        total_posts: 0,
+        total_followers: media.followers || 0 
       };
     }
 
@@ -103,7 +105,15 @@ function aggregateMetrics(mediaArray) {
     totalsByAccount[key].shares += media.insights?.shares || 0;
     totalsByAccount[key].views += media.insights?.views || 0;
     totalsByAccount[key].total_interactions += media.insights?.total_interactions || 0;
+    totalsByAccount[key].total_posts += 1;
+
+    totalsByAccount[key].total_followers = Math.max(
+      totalsByAccount[key].total_followers,
+      media.followers || 0
+    );
   }
+
+  
 
   return Object.values(totalsByAccount);
 }
